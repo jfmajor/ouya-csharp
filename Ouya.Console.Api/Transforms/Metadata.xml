@@ -9,11 +9,11 @@
   <attr path="/api/package[@name='tv.ouya.console.internal']" name="managedName">Ouya.Console.Internal</attr>
   <attr path="/api/package[@name='tv.ouya.console.util.http']" name="managedName">Ouya.Console.Util.Http</attr>
   <!-- Remove problematic classes for now -->
-  <add-node path="/api/package[@name='tv.ouya.console.api']/class[@name='CancelIgnoringOuyaResponseListener']">
+  <!-- <add-node path="/api/package[@name='tv.ouya.console.api']/class[@name='CancelIgnoringOuyaResponseListener']">
     <method name="onSuccess" return="void" abstract="false" native="false" synchronized="false" static="false" final="false" deprecated="not deprecated" visibility="public">
       <parameter name="p0" type="java.lang.Object" />
     </method>
-  </add-node>
+  </add-node> -->
   <remove-node path="/api/package[@name='tv.ouya.console.api']/class[@name='CancelIgnoringJsonResponseListener']">
     <method name="onSuccess" return="void" abstract="true" native="false" synchronized="false" static="false" final="false" deprecated="not deprecated" visibility="public">
       <parameter name="p0" type="java.lang.Object" />
@@ -27,6 +27,9 @@
   <remove-node path="/api/package[@name='tv.ouya.console.api']/class[@name='StoreManager']/method[@name='setInstance']" />
   <remove-node path="/api/package[@name='tv.ouya.console.api']/class[@name='UserManager']/method[@name='bindRequestHasBeenMade']" />
   <remove-node path="/api/package[@name='tv.ouya.console.api']/class[@name='UserManager']/method[@name='setInstance']" />
+  <remove-node path="/api/package[@name='tv.ouya.console.api']/class[@name='CancelIgnoringOuyaResponseListener']/method[@name='onCancel']" />
+  <!-- Rename method -->
+  <attr path="/api/package[@name='tv.ouya.console.api.store']/class[@name='StoreSection']/method[@name='getType']" name="name">GetSectionType</attr>
   <!-- Rename method parameters -->
   <attr path="/api/package[@name='tv.ouya.console.api']/class[@name='OuyaController']/method[@name='getControllerByDeviceId']/parameter[@name='p0']" name="name">deviceId</attr>
   <attr path="/api/package[@name='tv.ouya.console.api']/class[@name='OuyaController']/method[@name='getControllerByPlayer']/parameter[@name='p0']" name="name">playerIndex</attr>

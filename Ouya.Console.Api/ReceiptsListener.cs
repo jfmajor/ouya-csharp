@@ -5,9 +5,9 @@ using Ouya.Csharp.Purchaseutils;
 
 namespace Ouya.Console.Api
 {
-    class ReceiptsListener : global::Java.Lang.Object, IOuyaResponseListener
+    public class ReceiptsListener : global::Java.Lang.Object, IOuyaResponseListener
     {
-        TaskCompletionSource<IList<Receipt>> _tcs;
+        public TaskCompletionSource<IList<Receipt>> _tcs;
         PurchaseUtils _purchaseUtils;
 
         public ReceiptsListener(TaskCompletionSource<IList<Receipt>> tcs, PurchaseUtils purchaseUtils)
@@ -23,7 +23,7 @@ namespace Ouya.Console.Api
 
         public void OnFailure(int errorCode, string errorMessage, global::Android.OS.Bundle optionalData)
         {
-            _tcs.SetException(new OuyaRequestException(errorCode, errorMessage));
+            //_tcs.SetException(new OuyaRequestException(errorCode, errorMessage));
         }
 
         public void OnSuccess(global::Java.Lang.Object result)
